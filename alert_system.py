@@ -3,6 +3,7 @@ import logging
 import threading
 import pandas as pd
 from webpage_capturer import webpage_capturer
+from decouple import config 
 
 logger = logging.getLogger(__name__)
 
@@ -15,8 +16,8 @@ logger = logging.getLogger(__name__)
 class AlertSystem:
     def __init__(self, use_telegram=True):
         self.use_telegram = use_telegram
-        self.TELEGRAM_TOKEN = "7471140414:AAEUMY3Zj3IRUXB0tQZRAvUnjrbF4qEPnr8"  
-        self.CHAT_ID = "-4655509942"
+        self.TELEGRAM_TOKEN = config("TELEGRAM_TOKEN")  
+        self.CHAT_ID = config("TELEGRAM_CHAT_ID")
     
     def send_telegram_message(self, message, image_path=None):
         """Envía un mensaje de texto por Telegram en un hilo separado, con opción a incluir una imagen"""
