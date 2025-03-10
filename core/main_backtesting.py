@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 from tabulate import tabulate
 from chart_module import TradingChart
 # import telegram_send  # Opcional: para enviar alertas por Telegram
+from decouple import config
 
 # Configuración de logging
 logging.basicConfig(
@@ -522,8 +523,8 @@ class PecetoPredictor:
 if __name__ == "__main__":
     # Archivo config.py debe contener API_KEY y API_SECRET
     predictor = PecetoPredictor(
-        api_key="LAyhhpoyAFuO3c6K6Uqv1Xe7iTImsh9pRl4JRJKHgeEc8wTZ8tGwkxoUOFLgUkHc",
-        api_secret="dIvalLnG5h7Oa2bm1jv3r4zGqHVDfrtgYa85ocAYJIDmXNTrz0yKVKkttAnFPtRX",
+        api_key=config('BINANCE_API_KEY'),
+        api_secret=config('BINANCE_API_SECRET'),
         symbol='BTCUSDT',    # Par de trading
         interval='15m',      # Intervalo de tiempo
         use_telegram=False,  # Cambiar a True para recibir alertas por Telegram
