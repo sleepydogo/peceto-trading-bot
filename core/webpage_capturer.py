@@ -42,5 +42,5 @@ class WebPageCapture:
             # Cerrar el navegador
             driver.quit()
 
-webpage_capturer = WebPageCapture('/Users/tomasemanuelschattmann/proyectos/peceto-trading-bot/BTCUSDT_1m_chart.html')
+# webpage_capturer = WebPageCapture()
 # webpage_capturer.capture() # Inicializamos el servicio con una captura del estado actual 
